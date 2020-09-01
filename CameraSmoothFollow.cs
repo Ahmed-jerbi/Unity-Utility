@@ -1,5 +1,5 @@
 ﻿/*
-Camera Script for smooth following
+Camera Script for smooth following an object
 */
 using UnityEngine;
 using System.Collections;
