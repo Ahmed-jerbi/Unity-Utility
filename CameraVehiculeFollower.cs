@@ -4,7 +4,7 @@ Camera Script for following a vehicule
 
 using UnityEngine;
 
-public class CameraVehiculeController : MonoBehaviour {
+public class CameraVehiculeFollower : MonoBehaviour {
     public Transform VehicleTransform;
     public float DistanceFromVehicle;
     public float HeightFromVehicle;
