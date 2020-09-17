@@ -4,6 +4,8 @@ Simple script for moving an object along the X (sides) and Z (forward) direction
 - Horizontal  : X axis : left/right 
 - Vertical    : Z axis : forward/back
 
+This script is ideal for camera controlling
+
 */
 
 using UnityEngine;
@@ -14,6 +16,8 @@ public class SimpleMoveObject : MonoBehaviour
 
   public int moveSpeed=1;
   public int rotSpeed=1;
+  private float yaw = 0.0f;
+  private float pitch = 0.0f;
 
   void Update()
   {
@@ -21,7 +25,9 @@ public class SimpleMoveObject : MonoBehaviour
     transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
     
     //Rotation around X and Y
-    transform.Rotate(rotSpeed * Input.GetAxis("Mouse Y"), rotSpeed * Input.GetAxis("Mouse X"), 0);
+        yaw += rotSpeed * Input.GetAxis("Mouse X");
+        pitch -= rotSpeed * Input.GetAxis("Mouse Y");
+        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     
   }
   
