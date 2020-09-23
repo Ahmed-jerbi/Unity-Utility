@@ -10,11 +10,11 @@ For monitoring, drag and drop UI text objects to the following variables of the 
 - QualityTxt : shows the current quality level = "VeryLow", "Low", "Medium", "High", "VeryHigh", "Ultra"
 - FpsTxt : displays frame rate
 
----------------------------------------------
+--------------------------------------------
  Author: Ahmed jerbi
  Date: September, 2020
  www.github.com/Ahmed-jerbi
----------------------------------------------
+--------------------------------------------
 */
 
 using System.Collections;
