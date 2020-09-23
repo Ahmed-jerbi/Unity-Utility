@@ -15,6 +15,11 @@
     #Axis       Y Axis
     #Joy Num    Joystick 1
 ------------------------------
+
+ - Author: Ahmed jerbi
+ - Date: September, 2020
+ - www.github.com/Ahmed-jerbi
+ 
 */
 using System.Collections;
 using System.Collections.Generic;
