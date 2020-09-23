@@ -1,0 +1,68 @@
+/*
+
+This script provides runtime control over the application's quality level with FPS monitoring and UI feedback.
+
+Keyboard button controls:
+O - Decrease Level
+P - Increase Level
+
+For monitoring, drag and drop UI text objects to the following variables of the script inspector: 
+- QualityTxt : shows the current quality level = "VeryLow", "Low", "Medium", "High", "VeryHigh", "Ultra"
+- FpsTxt : displays frame rate
+
+---------------------------------------------
+ Author: Ahmed jerbi
+ Date: September, 2020
+ www.github.com/Ahmed-jerbi
+---------------------------------------------
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class QualityLevelControl : MonoBehaviour
+{
+ 
+    public Text QualityTxt;
+    public Text FpsTxt;
+    string[] QLevels = { "VeryLow", "Low", "Medium", "High", "VeryHigh", "Ultra" };
+    int i=5;
+    float deltaTime;
+    void Start()
+    {
+    // UI init
+        QualityTxt.text = " Quality level : " + QLevels[i];
+
+    }
+
+    void Update()
+    {
+        //Calculate and Display FPS
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = 1.0f / deltaTime;
+        FpsTxt.text = Mathf.Ceil(fps).ToString();
+
+        //switch quality level at runtime on button inputs, then update the UI 
+        if (Input.GetKeyDown(KeyCode.O))
+        {   if (i>0)
+            {
+                QualitySettings.DecreaseLevel();
+                i--;
+                QualityTxt.text = " Quality level : " + QLevels[i];
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (i< 5)
+            {
+                QualitySettings.IncreaseLevel();
+                i++;
+                QualityTxt.text = " Quality level : " + QLevels[i];
+            }
+        }
+    }
+}
